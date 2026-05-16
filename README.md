@@ -10,7 +10,7 @@ It is an unedited experimental scratchpad used for rapid hyperparameter tuning a
 ## Dataset & Preprocessing Pipeline
 *(Note: The preprocessing pipeline was executed in a separate, localized environment prior to this training run.)*
 
-The model utilizes high-resolution urban street scenes. A custom data preprocessing pipeline was built to translate the raw annotation data into a model-ready YOLO format:
+The model utilizes high-resolution urban street scenes from Cityscapes dataset. A custom data preprocessing pipeline was built to translate the raw annotation data into a model-ready YOLO format:
 
 * **Annotation Extraction & Normalization:** Parsed complex JSON annotation trees to extract visible bounding box (`bboxVis`) coordinates. Absolute pixel values (X, Y, Width, Height) were mathematically converted into normalized YOLO format relative to the original image dimensions.
 * **Semantic Label Mapping:** Pedestrian objects were mapped to the primary positive class. Regions labeled as "ignore" (e.g., highly dense crowds, reflections, or ambiguous shapes) were systematically filtered out to prevent noisy gradients during backpropagation.
